@@ -14,7 +14,11 @@
     ],
     "frameworks": {
       "netcoreapp2.0": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/PrestoQ.ProductParser.csproj": {
+            "projectPath": "/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/PrestoQ.ProductParser.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
