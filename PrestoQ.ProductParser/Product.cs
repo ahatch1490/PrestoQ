@@ -4,7 +4,7 @@ namespace PrestoQ.ProductParser
     {
             public int ProductID { get; set; } = 0; 
             public string Description { get; set; }
-            public string RegularSingularPrice { get; set; }
+            public decimal? RegularSingularPrice { get; set; }
             public string PromotionalSingularPrice { get; set; }
             public string RegularSplitPrice { get; set; }
             public string PromotionalSplitPrice { get; set; }

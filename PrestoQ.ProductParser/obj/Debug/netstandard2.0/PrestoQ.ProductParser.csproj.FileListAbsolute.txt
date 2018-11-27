@@ -1,9 +1,0 @@
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/bin/Debug/netstandard2.0/PrestoQ.ProductParser.deps.json
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/bin/Debug/netstandard2.0/PrestoQ.ProductParser.dll
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/bin/Debug/netstandard2.0/PrestoQ.ProductParser.pdb
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.csprojResolveAssemblyReference.cache
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.csproj.CoreCompileInputs.cache
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.AssemblyInfoInputs.cache
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.AssemblyInfo.cs
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.dll
-/Users/anthony.hatch/projects/PrestoQ/PrestoQ.ProductParser/obj/Debug/netstandard2.0/PrestoQ.ProductParser.pdb

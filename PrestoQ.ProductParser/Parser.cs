@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 
 namespace PrestoQ.ProductParser
 {
@@ -22,9 +23,11 @@ namespace PrestoQ.ProductParser
                             new Product
                             {
                                 ProductID = GetProductID(line),
-                                Description = GetDescription(line)
+                                Description = GetDescription(line),
+                                RegularSingularPrice = GetRegularSingularPrice(line)
+                                
                             }
-                            );
+                        );
                     }
                     else
                     {
@@ -42,8 +45,21 @@ namespace PrestoQ.ProductParser
 
         private static int GetProductID(string line)
         {
-            var  id = line.Substring(0,8);
+            var id = line.Substring(0,8);
             return Convert.ToInt32(id.TrimStart('0')); 
+        }
+
+        private static decimal GetRegularSingularPrice(string line)
+        {
+            var regPrice = line.Substring(69,8).TrimStart('0');
+            return string.IsNullOrWhiteSpace(regPrice) ? 0.00m : FormatPrice(regPrice);
+        }
+        
+        private static decimal FormatPrice(string value)
+        {
+            var lastIndex = value.Length - 2;
+            var price = value.Insert(lastIndex, ".");
+            return Decimal.Parse(price); 
         }
     }
 }

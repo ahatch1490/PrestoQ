@@ -25,8 +25,6 @@ namespace PrestoQ.ProductParser.Test
             Products.ForEach(x => Assert.True(x.ProductID >= 0));
         }
         
-        
-        
         [Fact]
         public void ProductShouldHaveIntegerShouldMatchIntegerValues()
         {
@@ -54,6 +52,22 @@ namespace PrestoQ.ProductParser.Test
             var Products = Parser.GetProducts(flatFile);
 
             Assert.Equal("1                                                        68", Products[0].Description);
+        }
+
+        [Fact]
+        public void SomeProductsShouldHaveRegularPrice()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-regular-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(5.67m,Products[0].RegularSingularPrice);
+        }
+
+        [Fact]
+        public void HandlesProductsWithCentOnlyValues()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-regular-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(0.67m,Products[1].RegularSingularPrice);
         }
     }
 }
