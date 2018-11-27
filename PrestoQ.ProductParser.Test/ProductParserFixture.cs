@@ -69,5 +69,15 @@ namespace PrestoQ.ProductParser.Test
             var Products = Parser.GetProducts(flatFile);
             Assert.Equal(0.67m,Products[1].RegularSingularPrice);
         }
+
+        [Fact]
+        public void HandlesProductThatHavePromotionalPricing()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-promotional-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(5.49m,Products[0].PromotionalSingularPrice);
+            Assert.Equal(0.67m,Products[1].PromotionalSingularPrice);
+            Assert.Equal(0.00m,Products[2].PromotionalSingularPrice);
+        }
     }
 }

@@ -24,8 +24,8 @@ namespace PrestoQ.ProductParser
                             {
                                 ProductID = GetProductID(line),
                                 Description = GetDescription(line),
-                                RegularSingularPrice = GetRegularSingularPrice(line)
-                                
+                                RegularSingularPrice = GetRegularSingularPrice(line),
+                                PromotionalSingularPrice = PromotionalSingularPrice(line)
                             }
                         );
                     }
@@ -59,7 +59,13 @@ namespace PrestoQ.ProductParser
         {
             var lastIndex = value.Length - 2;
             var price = value.Insert(lastIndex, ".");
-            return Decimal.Parse(price); 
+            return decimal.Parse(price); 
+        }
+        
+        private static decimal PromotionalSingularPrice(string line)
+        {
+            var promoPrice = line.Substring(78,8).TrimStart('0');
+            return string.IsNullOrWhiteSpace(promoPrice) ? 0.00m : FormatPrice(promoPrice);        
         }
     }
 }
