@@ -79,5 +79,67 @@ namespace PrestoQ.ProductParser.Test
             Assert.Equal(0.67m,Products[1].PromotionalSingularPrice);
             Assert.Equal(0.00m,Products[2].PromotionalSingularPrice);
         }
+        
+        
+        [Fact]
+        public void HandlesProductThatHaveRegularSplitPricing()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-split-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(0.00m,Products[0].RegularSplitPrice);
+            Assert.Equal(6.50m,Products[1].RegularSplitPrice);
+            Assert.Equal(0.9975m,Products[2].RegularSplitPrice);
+        }
+        
+        [Fact]
+        public void HandlesProductThatHavePromotionalSplitPricing()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-split-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(4.995m,Products[0].PromotionalSplitPrice);
+            Assert.Equal(0.00m,Products[1].PromotionalSplitPrice);
+            Assert.Equal(0.00m,Products[2].PromotionalSplitPrice);
+        }
+
+        [Fact]
+        public void HandlesTaxRate()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-sample.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(0.00m,Products[0].TaxRate);
+            Assert.Equal(0.7775m,Products[1].TaxRate);
+ 
+        }
+
+        [Fact]
+        public void HandleUnitOfMeasure()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-sample.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal("Each",Products[0].UnitOfMeasure);
+            Assert.Equal("Pound",Products[3].UnitOfMeasure);
+        }
+
+        [Fact]
+        public void HandlesProductSize()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-sample.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal("18oz",Products[0].Size);
+            Assert.Equal("12x12oz",Products[1].Size);
+            Assert.Equal("",Products[2].Size);
+            Assert.Equal("lb",Products[3].Size);
+        }
+        
+        [Fact]
+        public void ShouldHandleNegativeValues()
+        {
+            var flatFile = TestLoader.LoadFlatFile("input-test-nagative-pricing.txt");     
+            var Products = Parser.GetProducts(flatFile);
+            Assert.Equal(-5.67m,Products[0].RegularSingularPrice);
+            Assert.Equal(-6.50m,Products[1].RegularSplitPrice);
+            Assert.Equal(-5.49m,Products[2].PromotionalSingularPrice);
+            Assert.Equal(-3.49m,Products[3].RegularSingularPrice);
+        }
     }
 }

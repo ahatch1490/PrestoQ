@@ -1,0 +1,4 @@
+80000001 Kimchi-flavored white rice                                  0000-567 00000000 00000000 00000000 00000000 00000000 NNNNNNNNN      18oz
+14963801 Generic Soda 12-pack                                        00000000 0000-549 000-1300 00000000 00000002 00000000 NNNNYNNNN   12x12oz
+40123401 Marlboro Cigarettes                                         00001000 0000-549 00000000 00000000 00000000 00000000 YNNNNNNNN          
+50133333 Fuji Apples (Organic)                                       0000-349 00000000 00000000 00000000 00000000 00000000 NNYNNNNNN        lb
