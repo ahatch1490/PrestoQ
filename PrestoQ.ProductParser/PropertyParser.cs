@@ -13,7 +13,7 @@ namespace PrestoQ.ProductParser
             return line.Substring(9,59).Trim();
         }
 
-        public static int GetProductID(string line)
+        public static int GetProductId(string line)
         {
             var id = FormatNumber(0, 8, line); 
             return Convert.ToInt32(id); 

@@ -36,7 +36,7 @@ namespace PrestoQ.ProductParser
         {
             return new Product
             {
-                ProductID = GetProductID(line),
+                ProductId = GetProductId(line),
                 Description = GetDescription(line),
                 RegularSingularPrice = GetRegularSingularPrice(line),
                 PromotionalSingularPrice = PromotionalSingularPrice(line),
