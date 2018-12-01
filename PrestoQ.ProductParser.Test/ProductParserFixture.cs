@@ -134,7 +134,7 @@ namespace PrestoQ.ProductParser.Test
         [Fact]
         public void ShouldHandleNegativeValues()
         {
-            var flatFile = TestLoader.LoadFlatFile("input-test-nagative-pricing.txt");     
+            var flatFile = TestLoader.LoadFlatFile("input-test-negative-pricing.txt");     
             var Products = Parser.GetProducts(flatFile);
             Assert.Equal(-5.67m,Products[0].RegularSingularPrice);
             Assert.Equal(-6.50m,Products[1].RegularSplitPrice);
