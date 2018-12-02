@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQ.ProductParser", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQ.ProductParser.Test", "PrestoQ.ProductParser.Test\PrestoQ.ProductParser.Test.csproj", "{31227020-9890-40AB-B782-4971C7BF02F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQ.Cmd", "PrestoQ.Cmd\PrestoQ.Cmd.csproj", "{FF04985A-6342-47ED-A8E3-3517EEB374C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{31227020-9890-40AB-B782-4971C7BF02F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31227020-9890-40AB-B782-4971C7BF02F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31227020-9890-40AB-B782-4971C7BF02F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF04985A-6342-47ED-A8E3-3517EEB374C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF04985A-6342-47ED-A8E3-3517EEB374C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF04985A-6342-47ED-A8E3-3517EEB374C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF04985A-6342-47ED-A8E3-3517EEB374C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
