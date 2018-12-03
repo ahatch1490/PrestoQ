@@ -36,7 +36,7 @@ namespace PrestoQ.ProductParser
             var regSplitPrice = FormatNumber(87, 8, line);
             var split = FormatNumber(105, 8, line);
 
-            if (string.IsNullOrWhiteSpace(regSplitPrice) || string.IsNullOrWhiteSpace(regSplitPrice))
+            if (string.IsNullOrWhiteSpace(regSplitPrice) || string.IsNullOrWhiteSpace(split))
             {
                 return 0.00m; 
             }
@@ -48,7 +48,7 @@ namespace PrestoQ.ProductParser
             var promoSplitPrice = line.Substring(96,8).TrimStart('0');
             var split = line.Substring(114, 8).TrimStart('0');
 
-            if (string.IsNullOrWhiteSpace(promoSplitPrice) || string.IsNullOrWhiteSpace(promoSplitPrice))
+            if (string.IsNullOrWhiteSpace(promoSplitPrice) || string.IsNullOrWhiteSpace(split))
             {
                 return 0.00m; 
             }
@@ -88,9 +88,9 @@ namespace PrestoQ.ProductParser
             return decimal.Parse(price); 
         }
 
-        private static decimal SplitPrice(decimal splitPrice, decimal split)
+        private static decimal SplitPrice(decimal price, decimal split)
         {
-            return Math.Round(splitPrice / split, 4);
+            return Math.Round(price / split, 4);
         }
 
         public static string GetProductSize(string line)

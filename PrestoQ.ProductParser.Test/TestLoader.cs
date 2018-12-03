@@ -2,7 +2,7 @@ using System.IO;
 
 namespace PrestoQ.ProductParser.Test
 {
-    internal class TestLoader
+    internal static class TestLoader
     {
 
 
