@@ -2,10 +2,11 @@
 
 Demonstration product parsing library. 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0db0b235c0a6437ebb74da848d725679)](https://app.codacy.com/app/ahatch1490/PrestoQ?utm_source=github.com&utm_medium=referral&utm_content=ahatch1490/PrestoQ&utm_campaign=Badge_Grade_Dashboard)     
+
+[![Build status](https://ci.appveyor.com/api/projects/status/fldhshpqaf4gwk9s?svg=true)](https://ci.appveyor.com/project/ahatch1490/prestoq)
+
 ## Getting Started
-
-
-
 
 ### Prerequisites
 
@@ -13,15 +14,14 @@ Need to install .netcore Mac, Linux or Windows [here](https://dotnet.microsoft.c
 
 ### Installing
 
-Build for the project directroy.
+Build for the solution directroy.
 
-Say what the step will be
 
 ```
 $> dotnet build
 ```
 
-From PrestoQ.Cmd run CMD example application
+From PrestoQ.Cmd directory run CMD example application
 
 ```
 $> dotent run ../path/to/an/example/product_file.txt
@@ -36,19 +36,12 @@ From the PrestoQ.Parser.Test project folder
 $> dotent test 
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0db0b235c0a6437ebb74da848d725679)](https://app.codacy.com/app/ahatch1490/PrestoQ?utm_source=github.com&utm_medium=referral&utm_content=ahatch1490/PrestoQ&utm_campaign=Badge_Grade_Dashboard)            
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Codacy](https://www.codacy.com) Code Analytics         
+* [Nuget](https://nuget.com) - Dependency Management
+* [AppVoyer](https://ci.appveyor.com) - CI 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -56,16 +49,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* [Anthony Hatch](https://www.linkedin.com/in/anthony-hatch-8481b613/) - *Initial work* - 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
