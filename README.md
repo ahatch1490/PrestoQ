@@ -42,7 +42,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [.Net Standard 2.0]() 
+* [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0db0b235c0a6437ebb74da848d725679)](https://app.codacy.com/app/ahatch1490/PrestoQ?utm_source=github.com&utm_medium=referral&utm_content=ahatch1490/PrestoQ&utm_campaign=Badge_Grade_Dashboard)            
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
