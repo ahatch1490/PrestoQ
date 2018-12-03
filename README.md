@@ -14,9 +14,7 @@ Need to install .netcore Mac, Linux or Windows [here](https://dotnet.microsoft.c
 
 ### Installing
 
-Build for the solution directroy.
-
-
+Build from the solution directroy.
 ```
 $> dotnet build
 ```
@@ -27,7 +25,6 @@ From PrestoQ.Cmd directory run CMD example application
 $> dotent run ../path/to/an/example/product_file.txt
 ```
 This should create or append a group of products into a 'product-output.json' file. This file will be located in the PrestoQ.Cmd project folder.
-
 
 ## Running the tests
 
@@ -41,11 +38,6 @@ $> dotent test
 * [Codacy](https://www.codacy.com) Code Analytics         
 * [Nuget](https://nuget.com) - Dependency Management
 * [AppVoyer](https://ci.appveyor.com) - CI 
-
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
