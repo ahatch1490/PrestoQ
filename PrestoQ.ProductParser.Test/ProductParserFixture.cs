@@ -56,7 +56,7 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-regular-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(5.67m,products[0].RegularSingularPrice);
+            Assert.Equal("5.67",products[0].RegularSingularPrice);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-regular-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(0.67m,products[1].RegularSingularPrice);
+            Assert.Equal("0.67",products[1].RegularSingularPrice);
         }
 
         [Fact]
@@ -72,9 +72,9 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-promotional-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(5.49m,products[0].PromotionalSingularPrice);
-            Assert.Equal(0.67m,products[1].PromotionalSingularPrice);
-            Assert.Equal(0.00m,products[2].PromotionalSingularPrice);
+            Assert.Equal("5.49",products[0].PromotionalSingularPrice);
+            Assert.Equal("0.67",products[1].PromotionalSingularPrice);
+            Assert.Equal("0.00",products[2].PromotionalSingularPrice);
         }
         
         
@@ -83,9 +83,9 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-split-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(0.00m,products[0].RegularSplitPrice);
-            Assert.Equal(6.50m,products[1].RegularSplitPrice);
-            Assert.Equal(0.9975m,products[2].RegularSplitPrice);
+            Assert.Equal("0.00",products[0].RegularSplitPrice);
+            Assert.Equal("6.50",products[1].RegularSplitPrice);
+            Assert.Equal("0.9975",products[2].RegularSplitPrice);
         }
         
         [Fact]
@@ -93,9 +93,9 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-split-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(4.995m,products[0].PromotionalSplitPrice);
-            Assert.Equal(0.00m,products[1].PromotionalSplitPrice);
-            Assert.Equal(0.00m,products[2].PromotionalSplitPrice);
+            Assert.Equal("4.995",products[0].PromotionalSplitPrice);
+            Assert.Equal("0.00",products[1].PromotionalSplitPrice);
+            Assert.Equal("0.00",products[2].PromotionalSplitPrice);
         }
 
         [Fact]
@@ -103,8 +103,8 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-sample.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(0.00m,products[0].TaxRate);
-            Assert.Equal(0.7775m,products[1].TaxRate);
+            Assert.Equal("0.00",products[0].TaxRate);
+            Assert.Equal("0.7775",products[1].TaxRate);
  
         }
 
@@ -133,10 +133,10 @@ namespace PrestoQ.ProductParser.Test
         {
             var flatFile = TestLoader.LoadFlatFile("input-test-negative-pricing.txt");     
             var products = Parser.GetProducts(flatFile);
-            Assert.Equal(-5.67m,products[0].RegularSingularPrice);
-            Assert.Equal(-6.50m,products[1].RegularSplitPrice);
-            Assert.Equal(-5.49m,products[2].PromotionalSingularPrice);
-            Assert.Equal(-3.49m,products[3].RegularSingularPrice);
+            Assert.Equal("-5.67",products[0].RegularSingularPrice);
+            Assert.Equal("-6.50",products[1].RegularSplitPrice);
+            Assert.Equal("-5.49",products[2].PromotionalSingularPrice);
+            Assert.Equal("-3.49",products[3].RegularSingularPrice);
         }
     }
 }

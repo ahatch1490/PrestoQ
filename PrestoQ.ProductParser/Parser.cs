@@ -38,11 +38,11 @@ namespace PrestoQ.ProductParser
             {
                 ProductId = GetProductId(line),
                 Description = GetDescription(line),
-                RegularSingularPrice = GetRegularSingularPrice(line),
-                PromotionalSingularPrice = PromotionalSingularPrice(line),
-                RegularSplitPrice = GetRegularSplitPrice(line),
-                PromotionalSplitPrice = GetPromotionalSplitPrice(line),
-                TaxRate = GetTaxRate(line),
+                RegularSingularPrice = GetRegularSingularPrice(line).ToString(),
+                PromotionalSingularPrice = PromotionalSingularPrice(line).ToString(),
+                RegularSplitPrice = GetRegularSplitPrice(line).ToString(),
+                PromotionalSplitPrice = GetPromotionalSplitPrice(line).ToString(),
+                TaxRate = GetTaxRate(line).ToString(),
                 UnitOfMeasure = GetUnitOfMeasure(line),
                 Size = GetProductSize(line)
             }; 

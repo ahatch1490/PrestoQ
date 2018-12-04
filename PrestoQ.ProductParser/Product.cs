@@ -4,11 +4,11 @@ namespace PrestoQ.ProductParser
     {
             public int ProductId { get; set; } 
             public string Description { get; set; }
-            public decimal RegularSingularPrice { get; set; }
-            public decimal PromotionalSingularPrice { get; set; }
-            public decimal RegularSplitPrice { get; set; }
-            public decimal PromotionalSplitPrice { get; set; }
-            public decimal TaxRate { get; set; }
+            public string RegularSingularPrice { get; set; }
+            public string PromotionalSingularPrice { get; set; }
+            public string RegularSplitPrice { get; set; }
+            public string PromotionalSplitPrice { get; set; }
+            public string TaxRate { get; set; }
             public string UnitOfMeasure { get; set; }
             public string Size { get; set; }
     }
