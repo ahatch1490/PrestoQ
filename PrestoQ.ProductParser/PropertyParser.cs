@@ -45,8 +45,8 @@ namespace PrestoQ.ProductParser
         
         public static decimal GetPromotionalSplitPrice(string line)
         {
-            var promoSplitPrice = line.Substring(96,8).TrimStart('0');
-            var split = line.Substring(114, 8).TrimStart('0');
+            var promoSplitPrice = FormatNumber(96,8,line);
+            var split = FormatNumber(114,8,line);
 
             if (string.IsNullOrWhiteSpace(promoSplitPrice) || string.IsNullOrWhiteSpace(split))
             {
@@ -68,6 +68,11 @@ namespace PrestoQ.ProductParser
                 measure = "Pound"; 
             }
             return measure; 
+        }
+        
+        public static string GetProductSize(string line)
+        {
+            return line.Substring(134, 8).Trim();
         }
 
         private static  bool GetFlag(string line, int flagIndex)
@@ -91,11 +96,6 @@ namespace PrestoQ.ProductParser
         private static decimal SplitPrice(decimal price, decimal split)
         {
             return Math.Round(price / split, 4);
-        }
-
-        public static string GetProductSize(string line)
-        {
-            return line.Substring(134, 8).Trim();
         }
 
         private static string FormatNumber(int start, int length, string line)
