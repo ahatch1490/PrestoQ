@@ -15,44 +15,44 @@ namespace PrestoQ.ProductParser
 
         public static int GetProductId(string line)
         {
-            var id = FormatNumber(0, 8, line); 
+            var id = new NumberFormatter(0, 8, line).Value; 
             return Convert.ToInt32(id); 
         }
 
         public static decimal GetRegularSingularPrice(string line)
         {
-            var regPrice = FormatNumber(69, 8, line); 
-            return string.IsNullOrWhiteSpace(regPrice) ? 0.00m : FormatPrice(regPrice);
+            var regPrice = new NumberFormatter(69, 8, line).Value; 
+            return string.IsNullOrWhiteSpace(regPrice) ? 0.00m : new PriceFormatter(regPrice).Value;
         }
         
         public static decimal PromotionalSingularPrice(string line)
         {
-            var promoPrice = FormatNumber(78, 8, line); 
-            return string.IsNullOrWhiteSpace(promoPrice) ? 0.00m : FormatPrice(promoPrice);        
+            var promoPrice = new NumberFormatter(78, 8, line).Value; 
+            return string.IsNullOrWhiteSpace(promoPrice) ? 0.00m : new PriceFormatter(promoPrice).Value;        
         }
         
         public static decimal GetRegularSplitPrice(string line)
         {
-            var regSplitPrice = FormatNumber(87, 8, line);
-            var split = FormatNumber(105, 8, line);
+            var regSplitPrice = new NumberFormatter(87, 8, line).Value;
+            var split = new NumberFormatter(105, 8, line).Value;
 
             if (string.IsNullOrWhiteSpace(regSplitPrice) || string.IsNullOrWhiteSpace(split))
             {
                 return 0.00m; 
             }
-            return SplitPrice(FormatPrice(regSplitPrice),decimal.Parse(split));  
+            return SplitPrice(new PriceFormatter(regSplitPrice).Value,decimal.Parse(split));  
         }
         
         public static decimal GetPromotionalSplitPrice(string line)
         {
-            var promoSplitPrice = FormatNumber(96,8,line);
-            var split = FormatNumber(114,8,line);
+            var promoSplitPrice = new NumberFormatter(96,8,line).Value;
+            var split = new  NumberFormatter(114,8,line).Value;
 
             if (string.IsNullOrWhiteSpace(promoSplitPrice) || string.IsNullOrWhiteSpace(split))
             {
                 return 0.00m; 
             }
-            return SplitPrice(FormatPrice(promoSplitPrice),decimal.Parse(split));  
+            return SplitPrice(new PriceFormatter(promoSplitPrice).Value, decimal.Parse(split));  
         }
 
         public static decimal GetTaxRate(string line)
@@ -86,21 +86,9 @@ namespace PrestoQ.ProductParser
             return flags[flagIndex] == 'Y';
         }
         
-        private static decimal FormatPrice(string value)
-        {
-            var lastIndex = value.Length - 2;
-            var price = value.Insert(lastIndex, ".");
-            return decimal.Parse(price); 
-        }
-
         private static decimal SplitPrice(decimal price, decimal split)
         {
             return Math.Round(price / split, 4);
-        }
-
-        private static string FormatNumber(int start, int length, string line)
-        {
-            return line.Substring(start, length).TrimStart('0');
         }
     }
 }

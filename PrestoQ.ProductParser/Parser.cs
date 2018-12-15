@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using static PrestoQ.ProductParser.PropertyParser;
-
+[assembly:InternalsVisibleTo("PrestoQ.ProductParser.Test")]    
 namespace PrestoQ.ProductParser
 {
     public static class Parser
