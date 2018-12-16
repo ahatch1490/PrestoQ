@@ -37,7 +37,7 @@ namespace PrestoQ.ProductParser
             {
                 
                 ProductId = new ProductId(numberFormatter).ToInt(section), 
-                Description = GetDescription(line),
+                Description = new ProductDescription().parse(section),
                 RegularSingularPrice = GetRegularSingularPrice(line).ToString(),
                 PromotionalSingularPrice = PromotionalSingularPrice(line).ToString(),
                 RegularSplitPrice = GetRegularSplitPrice(line).ToString(),

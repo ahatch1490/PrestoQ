@@ -22,5 +22,10 @@ namespace PrestoQ.ProductParser
             var price = number.Insert(lastIndex, ".");
             return decimal.Parse(price); 
         }
+
+        public decimal Parse(string number)
+        {
+            return CreateNumber(number);
+        }
     }
 }
