@@ -33,12 +33,13 @@ namespace PrestoQ.ProductParser
         {
             var section = new ProductSection(line); 
             var numberFormatter = new NumberFormatter();
+            var priceFormatter = new PriceFormatter();
             return new Product
             {
                 
                 ProductId = new ProductId(numberFormatter).ToInt(section), 
                 Description = new ProductDescription().parse(section),
-                RegularSingularPrice = GetRegularSingularPrice(line).ToString(),
+                RegularSingularPrice = new RegularPrice(numberFormatter,priceFormatter).Parse(section).ToString(),
                 PromotionalSingularPrice = PromotionalSingularPrice(line).ToString(),
                 RegularSplitPrice = GetRegularSplitPrice(line).ToString(),
                 PromotionalSplitPrice = GetPromotionalSplitPrice(line).ToString(),
