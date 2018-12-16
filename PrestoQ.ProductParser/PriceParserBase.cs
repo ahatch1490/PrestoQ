@@ -16,6 +16,7 @@ namespace PrestoQ.ProductParser
             _numberFormatter = numberFormatter;
             _priceFormatter = priceFormatter; 
         }
+        
         public decimal Parse(ProductSection productSection)
         {
             var regPrice = _numberFormatter.parse(productSection.ValueAt(StartIndex(), Length()));
