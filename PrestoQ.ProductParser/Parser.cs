@@ -31,9 +31,12 @@ namespace PrestoQ.ProductParser
         
         private static Product CreateProduct(string line)
         {
+            var section = new ProductSection(line); 
+            var numberFormatter = new NumberFormatter();
             return new Product
             {
-                ProductId = GetProductId(line),
+                
+                ProductId = new ProductId(numberFormatter).ToInt(section), 
                 Description = GetDescription(line),
                 RegularSingularPrice = GetRegularSingularPrice(line).ToString(),
                 PromotionalSingularPrice = PromotionalSingularPrice(line).ToString(),
