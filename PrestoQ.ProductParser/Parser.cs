@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using static PrestoQ.ProductParser.PropertyParser;
@@ -34,6 +35,7 @@ namespace PrestoQ.ProductParser
             var section = new ProductSection(line); 
             var numberFormatter = new NumberFormatter();
             var priceFormatter = new PriceFormatter();
+            var flagParser = new FlagParser();
             return new Product
             {
                 
@@ -41,9 +43,9 @@ namespace PrestoQ.ProductParser
                 Description = new ProductDescription().parse(section),
                 RegularSingularPrice = new RegularPrice(numberFormatter,priceFormatter).Parse(section).ToString(),
                 PromotionalSingularPrice =  new PromotionalPrice(numberFormatter,priceFormatter).Parse(section).ToString(),
-                RegularSplitPrice = GetRegularSplitPrice(line).ToString(),
-                PromotionalSplitPrice = GetPromotionalSplitPrice(line).ToString(),
-                TaxRate = GetTaxRate(line).ToString(),
+                RegularSplitPrice = new RegularPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
+                PromotionalSplitPrice = new PromotionalPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
+                TaxRate = new TaxRate(flagParser).Parse(section).ToString(), 
                 UnitOfMeasure = GetUnitOfMeasure(line),
                 Size = GetProductSize(line)
             }; 
