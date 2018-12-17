@@ -46,8 +46,9 @@ namespace PrestoQ.ProductParser
                 RegularSplitPrice = new RegularPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
                 PromotionalSplitPrice = new PromotionalPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
                 TaxRate = new TaxRate(flagParser).Parse(section).ToString(), 
-                UnitOfMeasure = GetUnitOfMeasure(line),
-                Size = GetProductSize(line)
+                UnitOfMeasure = new UnitOfMeasure(flagParser).Parse(section),
+                Size = new ProductSize().Parse(section),
+                RawData = line
             }; 
         }
         

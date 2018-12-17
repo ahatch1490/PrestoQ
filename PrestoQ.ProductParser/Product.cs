@@ -11,5 +11,6 @@ namespace PrestoQ.ProductParser
             public string TaxRate { get; set; }
             public string UnitOfMeasure { get; set; }
             public string Size { get; set; }
+            public string RawData { get; set; }
     }
 }
