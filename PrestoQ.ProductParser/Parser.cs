@@ -1,16 +1,45 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using static PrestoQ.ProductParser.PropertyParser;
+
 [assembly:InternalsVisibleTo("PrestoQ.ProductParser.Test")]    
 namespace PrestoQ.ProductParser
 {
-    public static class Parser
+    public class Parser
     {
         
-        public static List<Product> GetProducts(string data)
+       
+        private readonly ProductParser _productParser; 
+        
+        public Parser()
+        {
+            // we should actually have a IoC container like Lamar for this stuff in real life
+            var numberFormatter = new NumberFormatter();
+            var priceFormatter = new PriceFormatter();
+            var flagParser = new FlagParser();
+            var productId = new ProductId(numberFormatter);
+            var productDescription = new ProductDescription();
+            var regularPrice = new RegularPrice(numberFormatter, priceFormatter);
+            var promotionalPrice = new PromotionalPrice(numberFormatter, priceFormatter);
+            var regularPriceSplitCalculator = new RegularPriceSplitCalculator(numberFormatter, priceFormatter);
+            var promotionalPriceSplitCalculator = new PromotionalPriceSplitCalculator(numberFormatter, priceFormatter);
+            var taxRate = new TaxRate(flagParser); 
+            var productSize = new ProductSize();
+            var unitOfMeasure = new UnitOfMeasure(flagParser);
+            _productParser = new ProductParser(
+                productId,
+                productDescription,
+                regularPrice,
+                promotionalPrice,
+                regularPriceSplitCalculator,
+                promotionalPriceSplitCalculator,
+                taxRate,productSize,
+                unitOfMeasure);
+            
+        }
+            
+            
+        public  List<Product> GetProducts(string data)
         {
             var products = new List<Product>();
             using (var strReader = new StringReader(data))
@@ -22,7 +51,7 @@ namespace PrestoQ.ProductParser
                     if (ValidProductLine(line))
                     {
                         products.Add( 
-                            CreateProduct(line)
+                            _productParser.Parse(new ProductSection(line))
                         );
                     }
                 }
@@ -30,29 +59,9 @@ namespace PrestoQ.ProductParser
             return products;
         }
         
-        private static Product CreateProduct(string line)
-        {
-            var section = new ProductSection(line); 
-            var numberFormatter = new NumberFormatter();
-            var priceFormatter = new PriceFormatter();
-            var flagParser = new FlagParser();
-            return new Product
-            {
-                
-                ProductId = new ProductId(numberFormatter).ToInt(section), 
-                Description = new ProductDescription().parse(section),
-                RegularSingularPrice = new RegularPrice(numberFormatter,priceFormatter).Parse(section).ToString(),
-                PromotionalSingularPrice =  new PromotionalPrice(numberFormatter,priceFormatter).Parse(section).ToString(),
-                RegularSplitPrice = new RegularPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
-                PromotionalSplitPrice = new PromotionalPriceSplitCalculator(numberFormatter,priceFormatter).Parse(section).ToString(),
-                TaxRate = new TaxRate(flagParser).Parse(section).ToString(), 
-                UnitOfMeasure = new UnitOfMeasure(flagParser).Parse(section),
-                Size = new ProductSize().Parse(section),
-                RawData = line
-            }; 
-        }
+       
         
-        private static bool ValidProductLine(string line)
+        private  bool ValidProductLine(string line)
         {
             return ! string.IsNullOrWhiteSpace(line); 
         }

@@ -16,7 +16,10 @@ namespace PrestoQ.ProductParser
            return _product.Substring(start, length); 
         }
 
-//var promoSplitPrice = new NumberFormatter(96,8,line).Value;
-//var split = new  NumberFormatter(114,8,line).Value;
+        public string all()
+        {
+            return _product; 
+        }
+
     }
 }

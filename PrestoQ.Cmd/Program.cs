@@ -9,7 +9,8 @@ namespace PrestoQ.Cmd
         static void Main(string[] args)
         {
             var data = File.ReadAllText(args[0]); 
-            var products =  Parser.GetProducts(data);
+            var parser = new Parser();
+            var products =  parser.GetProducts(data);
             var service = new ProductService();
             products.ForEach(p => service.Save(p)); 
 
