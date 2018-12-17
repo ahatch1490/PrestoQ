@@ -7,16 +7,16 @@ namespace PrestoQ.ProductParser.Test
         [Fact]
         public void ShouldParseANumber()
         {
-            var formatter = new PriceFormatter("2222");
-            var actual = formatter.Value;
+            var formatter = new PriceFormatter();
+            var actual = formatter.Parse("2222");
             Assert.Equal(22.22m, actual); 
         }
 
         [Fact]
         public void ShouldHandleNull()
         {
-            var formatter = new PriceFormatter(null);
-            var actual = formatter.Value;
+            var formatter = new PriceFormatter();
+            var actual = formatter.Parse(null);
             Assert.Equal(00.00m, actual); 
         }
         

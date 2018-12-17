@@ -2,16 +2,8 @@ namespace PrestoQ.ProductParser
 {
     public class PriceFormatter
     {
-        public decimal Value { get; }
-        
-
-        public PriceFormatter(string number = "0000")
-        {
-            Value = CreateNumber(number); 
-
-        }
-
-        private decimal CreateNumber(string number)
+       
+        private decimal CreatePrice(string number)
         {
             if (string.IsNullOrWhiteSpace(number))
             {
@@ -25,7 +17,7 @@ namespace PrestoQ.ProductParser
 
         public decimal Parse(string number)
         {
-            return CreateNumber(number);
+            return CreatePrice(number);
         }
     }
 }
